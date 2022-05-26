@@ -3,6 +3,7 @@ const pacientesController = require("../controllers/pacientesController");
 const psicologosController = require("../controllers/psicologosController");
 const atendimentosController = require("../controllers/atendimentosController");
 const loginController = require("../controllers/loginController");
+const dashboardController = require("../controllers/dashboardController")
 
 
 //Importar validações
@@ -23,14 +24,21 @@ routes.put('/psicologos/:id', validarPsicologo, psicologosController.atualizar);
 routes.delete('/psicologos/:id', psicologosController.deletar);
 
 routes.post('/pacientes', validarPaciente, pacientesController.cadastro);
-routes.get('/pacientes', pacientesController.listarTodos)
-routes.get('/pacientes/:id', pacientesController.listarID)
-routes.put('/pacientes/:id', validarPaciente, pacientesController.atualizar)
-routes.delete('/pacientes/:id', pacientesController.deletar) 
+routes.get('/pacientes', pacientesController.listarTodos);
+routes.get('/pacientes/:id', pacientesController.listarID);
+routes.put('/pacientes/:id', validarPaciente, pacientesController.atualizar);
+routes.delete('/pacientes/:id', pacientesController.deletar);
 
-routes.post("/atendimentos", auth, validarAtendimento, atendimentosController.cadastro)
-routes.get("/atendimentos", atendimentosController.listarTodos)
-routes.get("/atendimentos/:id", atendimentosController.listarID)
+routes.post("/atendimentos", auth, validarAtendimento, atendimentosController.cadastro);
+routes.get("/atendimentos", atendimentosController.listarTodos);
+routes.get("/atendimentos/:id", atendimentosController.listarID);
+
+routes.get("/dashboard/numero-de-pacientes", dashboardController.listarPacientes);
+routes.get("/dashboard/numero-de-atendimentos", dashboardController.listarAtendimentos);
+routes.get("/dashboard/numero-de-psicologos", dashboardController.listarPsicologos);
+routes.get("/dashboard/media-atendimento-psicologos", dashboardController.mediaAtendimentoPsicologo);
+
+
 
 
 module.exports = routes

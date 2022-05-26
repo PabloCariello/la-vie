@@ -10,13 +10,7 @@ const atendimentosController = {
         const novoAtendimento = await Atendimento.create({data_atendimento, observacao, paciente_id, psicologo_id: id})
         res.status(201).json(novoAtendimento)
     },
-    
-    // async cadastro (req, res) {
-    //     const {paciente_id, data_atendimento, observacao } = req.body;
-    //     const novoAtendimento = await Atendimento.create({paciente_id, data_atendimento, observacao})
-        
-    //     return res.status(201).json(novoAtendimento)
-    // },
+
 
     async listarTodos (req, res) {
         const todosAtendimento = await Atendimento.findAll({
