@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize');
 const Psicologo = require("./psicologos");
 const Paciente = require("./pacientes");
 
-const Atendimento = db.define('Cliente', {
+const Atendimento = db.define('Atendimento', {
     id:{
         type: DataTypes.INTEGER,
         primaryKey: true,

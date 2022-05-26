@@ -47,7 +47,7 @@ const psicologosController = {
             return res.status(404).json({message: "Psicologo não encontrado"});
         }
         await psicologo.destroy()
-        res.status(204).json({message: "Psicologo deletado"});
+        res.status(204)
     }
 }
 
